@@ -27,30 +27,35 @@
 }
 
 :root{
-  /* Lingua Noir palette — Ivory light / Inkwell dark.
-     Gold = interactive accent (CTAs, active states). Slate = progress. Emerald = success only.
-     Secondary text lifted above the brief's #4A4A4A, which fails WCAG as text; zinc stays for borders/chevrons. */
-  --bg:#F7F6F2;
+  /* Palette pulled directly from the reference apps: emerald green as the primary brand color
+     (buttons, active states, primary progress — like their "Continue" button and course ring),
+     warm coral for audio/energy actions (matches their mic/record button exactly), and soft
+     pastel category colors for the four phases (like their yellow/blue/pink vocab cards). */
+  --bg:#F7F8FB;
   --card:#FFFFFF;
-  --ink:#141414;
-  --sub:#565656;
-  --sub2:#8E8B85;
-  --sep:#E8E6E0;
-  --fill:#F1EFEA;
-  --fill2:#E6E3DC;
-  --chev:#C9C6BE;
-  --accent:#DAA520;
-  --accent-text:#8A6508;
-  --accent-soft:rgba(218,165,32,.10);
-  --slate:#2F4F4F;
-  --green:#177A48; --green-bg:rgba(80,200,120,.14);
-  --red:#C24747; --red-bg:rgba(194,71,71,.09);
-  --a1:#3E8E63; --a1-text:#2E6E4B; --a1-bg:rgba(62,142,99,.11);
-  --a2:#4A6FA5; --a2-text:#3A5885; --a2-bg:rgba(74,111,165,.11);
-  --b1:#A6802A; --b1-text:#82631E; --b1-bg:rgba(166,128,42,.12);
-  --b2:#8A5FA8; --b2-text:#6F4590; --b2-bg:rgba(138,95,168,.11);
-  --de:#3C5E8F;
-  --mastery-new:#C9C6BE; --mastery-weak:#B98A16; --mastery-strong:#2E9E63;
+  --ink:#181A20;
+  --sub:#666B76;
+  --sub2:#9AA0AC;
+  --sep:#E9EBF1;
+  --fill:#F1F3F8;
+  --fill2:#E5E8F0;
+  --chev:#C7CBD6;
+  --accent:#0F7A3E;
+  --accent-text:#0F7A3E;
+  --accent-soft:rgba(31,157,91,.10);
+  --coral:#FF6B4A;
+  --coral-text:#C13D1F;
+  --coral-soft:rgba(255,107,74,.11);
+  --slate:#1F9D5B;
+  --green:#0F7A3E; --green-bg:rgba(31,157,91,.11);
+  --red:#D02F35; --red-bg:rgba(229,72,77,.09);
+  --a1:#D9A400; --a1-text:#7A5C00; --a1-bg:rgba(217,164,0,.13);
+  --a2:#3B7DD8; --a2-text:#2A62B0; --a2-bg:rgba(59,125,216,.11);
+  --b1:#E8607F; --b1-text:#C94566; --b1-bg:rgba(232,96,127,.11);
+  --b2:#8B5FBF; --b2-text:#6F45A0; --b2-bg:rgba(139,95,191,.11);
+  --de:#2D66B8;
+  --het:#B5601C;
+  --mastery-new:#D7DAE2; --mastery-weak:#E8607F; --mastery-strong:#1F9D5B;
   --sans:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Segoe UI Variable','Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
   --mono:ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;
   --r-lg:22px; --r-md:18px; --r-sm:12px;
@@ -58,27 +63,31 @@
   --shadow:0 1px 2px rgba(20,20,20,.04), 0 10px 28px rgba(20,20,20,.06);
 }
 [data-theme="dark"]{
-  --bg:#111111;
-  --card:#1E1E1E;
-  --ink:#FDFDFD;
-  --sub:#A3A3A3;
-  --sub2:#6B6B6B;
-  --sep:#333333;
-  --fill:#2A2A2A;
-  --fill2:#333333;
-  --chev:#4A4A4A;
-  --accent:#DAA520;
-  --accent-text:#E6B93D;
-  --accent-soft:rgba(218,165,32,.12);
-  --slate:#5E8C8C;
-  --green:#50C878; --green-bg:rgba(80,200,120,.13);
-  --red:#EA6B66; --red-bg:rgba(224,82,82,.11);
-  --a1:#57B586; --a1-text:#6EC79A; --a1-bg:rgba(87,181,134,.13);
-  --a2:#7398CC; --a2-text:#8FADD9; --a2-bg:rgba(115,152,204,.14);
-  --b1:#CFA84D; --b1-text:#DBB967; --b1-bg:rgba(207,168,77,.13);
-  --b2:#AC85C9; --b2-text:#BD9DD6; --b2-bg:rgba(172,133,201,.14);
-  --de:#8CA9D4;
-  --mastery-new:#4A4A4A; --mastery-weak:#DAA520; --mastery-strong:#50C878;
+  --bg:#14161C;
+  --card:#1E212A;
+  --ink:#F5F6FA;
+  --sub:#A6ABB8;
+  --sub2:#6D7280;
+  --sep:#2C3038;
+  --fill:#252932;
+  --fill2:#2F333D;
+  --chev:#454A56;
+  --accent:#34D399;
+  --accent-text:#5EEBB3;
+  --accent-soft:rgba(52,211,153,.13);
+  --coral:#FF8B6E;
+  --coral-text:#FFA48B;
+  --coral-soft:rgba(255,139,110,.14);
+  --slate:#34D399;
+  --green:#34D399; --green-bg:rgba(52,211,153,.14);
+  --red:#F17075; --red-bg:rgba(241,112,117,.12);
+  --a1:#E8C34A; --a1-text:#F0D272; --a1-bg:rgba(232,195,74,.14);
+  --a2:#6FA3E8; --a2-text:#8FB8ED; --a2-bg:rgba(111,163,232,.15);
+  --b1:#F08AA0; --b1-text:#F5A5B6; --b1-bg:rgba(240,138,160,.15);
+  --b2:#AE8AD9; --b2-text:#C3A7E3; --b2-bg:rgba(174,138,217,.15);
+  --de:#6FA3E8;
+  --het:#F0A25E;
+  --mastery-new:#454A56; --mastery-weak:#F08AA0; --mastery-strong:#34D399;
   --shadow-sm:none;
   --shadow:none;
 }
@@ -96,7 +105,7 @@ h1,h2,h3{margin:0;}
 .ic{width:1em; height:1em; display:inline-block; vertical-align:-0.125em; flex:none;}
 .ic svg{width:100%; height:100%; display:block;}
 .iconbtn2 .ic, .iconbtn .ic{width:17px; height:17px; vertical-align:middle;}
-.card-label .ic{width:13px; height:13px; color:var(--accent-text);}
+.card-label .ic{width:13px; height:13px; color:var(--sub2);}
 .streak .ic{width:13px; height:13px;}
 .speakbtn .ic{width:21px; height:21px;}
 .starbtn .ic{width:15px; height:15px;}
@@ -120,7 +129,7 @@ header{
 }
 .iconbtn2:active{background:var(--fill2); transform:scale(.92);}
 .ring-wrap{display:flex; align-items:center; gap:12px;}
-.streak{display:flex; align-items:center; gap:4px; font-size:13px; font-weight:700; color:var(--accent-text);}
+.streak{display:flex; align-items:center; gap:4px; font-size:13px; font-weight:700; color:var(--coral-text);}
 .ring{position:relative; width:46px; height:46px; flex:none;}
 .ring svg{transform:rotate(-90deg); width:46px; height:46px;}
 .ring circle{fill:none; stroke-width:4;}
@@ -158,7 +167,7 @@ main{max-width:640px; margin:0 auto; padding:18px 14px 60px;}
 }
 .stat{flex:1; text-align:center;}
 .statval{font-size:19px; font-weight:800; letter-spacing:-0.02em; font-variant-numeric:tabular-nums;}
-.statval .ic{width:15px; height:15px; color:var(--accent); vertical-align:-0.08em;}
+.statval .ic{width:15px; height:15px; color:var(--coral); vertical-align:-0.08em;}
 .statof{font-size:12px; font-weight:600; color:var(--sub2);}
 .statlabel{font-size:11px; font-weight:600; color:var(--sub2); margin-top:3px; text-transform:uppercase; letter-spacing:.06em;}
 .statsep{width:1px; background:var(--sep); margin:2px 0;}
@@ -197,12 +206,12 @@ main{max-width:640px; margin:0 auto; padding:18px 14px 60px;}
 .row.locked .rowsub{color:var(--sub2);}
 .row.locked .badge{background:var(--fill); color:var(--sub2);}
 
-.row.current{background:var(--accent-soft); box-shadow:inset 3px 0 0 var(--accent);}
-.row.current:not(:disabled):active{background:var(--accent-soft); filter:brightness(.97);}
-.row.current .badge{background:var(--accent); color:#fff;}
+.row.current{background:color-mix(in srgb, var(--slate) 8%, var(--card)); box-shadow:inset 3px 0 0 var(--slate);}
+.row.current:not(:disabled):active{filter:brightness(.97);}
+.row.current .badge{background:var(--slate); color:#fff;}
 .row.current .rowtitle{font-weight:700;}
-.uplabel{font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.1em; color:var(--accent-text); margin-bottom:2px;}
-.row.current .chev{color:var(--accent);}
+.uplabel{font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.1em; color:var(--slate); margin-bottom:2px;}
+.row.current .chev{color:var(--slate);}
 
 .empty-note{font-size:12.5px; color:var(--sub); margin:14px 6px 0; line-height:1.55;}
 .storage-note{font-size:12px; color:var(--sub2); text-align:center; margin-top:18px;}
@@ -213,7 +222,7 @@ main{max-width:640px; margin:0 auto; padding:18px 14px 60px;}
   cursor:pointer; box-shadow:var(--shadow);
 }
 .review-card .rtitle{font-size:15px; font-weight:700; display:flex; align-items:center; gap:7px;}
-.review-card .rtitle .ic{color:var(--accent);}
+.review-card .rtitle .ic{color:var(--ink);}
 .review-card .rsub{font-size:12.5px; opacity:.72; margin-top:3px;}
 .review-card .rgo{background:var(--accent); color:#fff; border-radius:100px; padding:9px 16px; font-size:13px; font-weight:700; flex:none;}
 .review-card:active{transform:scale(.99);}
@@ -272,7 +281,7 @@ main{max-width:640px; margin:0 auto; padding:18px 14px 60px;}
 .vword .starbtn{position:absolute; top:2px; right:2px; background:none; border:none; cursor:pointer; color:var(--sub2); padding:7px;}
 
 .gender-de{color:var(--de); font-weight:800;}
-.gender-het{color:var(--accent-text); font-weight:800;}
+.gender-het{color:var(--het); font-weight:800;}
 .gender-key{display:inline-flex; align-items:center; gap:4px; font-weight:700;}
 .gender-key .gender-de, .gender-key .gender-het{font-weight:800;}
 
@@ -284,8 +293,8 @@ main{max-width:640px; margin:0 auto; padding:18px 14px 60px;}
 .wbrow .mastery-dot{margin-left:2px;}
 .vword .starbtn.on{color:var(--b1);}
 .vword .speakbtn{position:absolute; top:2px; left:2px; padding:7px;}
-.speakbtn{border:none; background:none; cursor:pointer; color:var(--sub2); flex:none; padding:5px;}
-.speakbtn:active{color:var(--accent-text);}
+.speakbtn{border:none; background:none; cursor:pointer; color:var(--coral); flex:none; padding:5px;}
+.speakbtn:active{color:var(--coral-text);}
 .starbtn{border:none; background:none; cursor:pointer; padding:5px;}
 
 .fillrow{display:flex; align-items:center; gap:8px; font-size:15px; font-weight:600; flex-wrap:wrap; margin-bottom:10px;}
@@ -307,13 +316,13 @@ textarea.wtext{
   width:100%; border:1px solid var(--sep); border-radius:var(--r-sm); padding:11px 12px; font-size:14px;
   font-family:inherit; resize:vertical; min-height:58px; background:var(--fill); color:var(--ink);
 }
-textarea.wtext:focus{outline:2px solid var(--accent); outline-offset:1px;}
-.reveal-btn{margin-top:8px; border:none; background:none; color:var(--accent-text); font-weight:700; font-size:12.5px; cursor:pointer; padding:4px 0;}
+textarea.wtext:focus{outline:2px solid var(--slate); outline-offset:1px;}
+.reveal-btn{margin-top:8px; border:none; background:none; color:var(--ink); font-weight:700; font-size:12.5px; cursor:pointer; padding:4px 0; text-decoration:underline;}
 .model-answer{display:none; margin-top:7px; background:var(--a2-bg); color:var(--a2-text); font-weight:600; font-size:13px; padding:9px 11px; border-radius:var(--r-sm);}
 .model-answer.show{display:block;}
 
-.task-card{background:var(--accent-soft); border-color:color-mix(in srgb, var(--accent) 25%, var(--sep));}
-.task-card .card-label{color:var(--accent-text);}
+.task-card{background:color-mix(in srgb, var(--slate) 7%, var(--card)); border-color:color-mix(in srgb, var(--slate) 25%, var(--sep));}
+.task-card .card-label{color:var(--slate);}
 
 .btnrow{display:flex; gap:10px; margin-top:8px;}
 .btn{
@@ -335,11 +344,11 @@ textarea.wtext:focus{outline:2px solid var(--accent); outline-offset:1px;}
   font-size:14.5px; font-weight:600; cursor:pointer; transition:.12s; color:var(--ink);
 }
 .opt:disabled{cursor:default;}
-.opt.selected{border-color:var(--accent);}
+.opt.selected{border-color:var(--slate);}
 .opt.correct{background:var(--green-bg); border-color:var(--green); color:var(--green);}
 .opt.wrong{background:var(--red-bg); border-color:var(--red); color:var(--red);}
 .typein{width:100%; border:1.5px solid var(--sep); border-radius:var(--r-sm); padding:14px 15px; font-size:15px; background:var(--card); color:var(--ink);}
-.typein:focus{outline:2px solid var(--accent); outline-offset:1px;}
+.typein:focus{outline:2px solid var(--slate); outline-offset:1px;}
 
 .scorewrap{text-align:center; padding:18px 0 6px;}
 .scorering{width:120px; height:120px; margin:0 auto 14px; position:relative;}
@@ -384,7 +393,7 @@ footer{text-align:center; padding:20px; font-size:11.5px; color:var(--sub2);}
 .copybtn-note{font-size:12px; color:var(--green); font-weight:700; margin-top:6px; display:none;}
 .copybtn-note.show{display:block;}
 
-:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:4px;}
+:focus-visible{outline:2px solid var(--slate); outline-offset:2px; border-radius:4px;}
 button:focus:not(:focus-visible){outline:none;}
 .row, .opt, .btn, .iconbtn2, .bandchip, .tab{transition:transform .12s ease, background .15s ease, border-color .15s ease;}
 .bandchip:active, .tab:active{transform:scale(.96);}
@@ -3322,7 +3331,7 @@ function applyTheme(){
   var btn = el('themeToggleBtn');
   if(btn) btn.innerHTML = mode==='dark' ? icon('sun') : icon('moon');
   var meta = document.querySelector('meta[name="theme-color"]');
-  if(meta) meta.setAttribute('content', mode==='dark' ? '#111111' : '#F7F6F2');
+  if(meta) meta.setAttribute('content', mode==='dark' ? '#14161C' : '#F7F8FB');
 }
 function toggleTheme(){
   var current = document.documentElement.getAttribute('data-theme') || 'light';
@@ -3724,7 +3733,7 @@ function finishReview(){
         '<div class="scorewrap">'+
           '<div class="scorering"><svg viewBox="0 0 120 120">'+
             '<circle class="track" cx="60" cy="60" r="51"></circle>'+
-            '<circle class="fill" cx="60" cy="60" r="51" style="stroke:var(--accent); stroke-dasharray:'+circumference.toFixed(1)+'; stroke-dashoffset:'+offset.toFixed(1)+';"></circle>'+
+            '<circle class="fill" cx="60" cy="60" r="51" style="stroke:var(--slate); stroke-dasharray:'+circumference.toFixed(1)+'; stroke-dashoffset:'+offset.toFixed(1)+';"></circle>'+
           '</svg><div class="val">'+pct+'%</div></div>'+
           '<div class="verdict pass">Nice review</div>'+
           '<div class="result-note">Your streak and word-recall stats are updated. Come back tomorrow for a fresh set.</div>'+
