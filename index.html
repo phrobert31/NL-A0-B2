@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Nederlands · A0 → B2</title>
 <meta name="description" content="Self-study Dutch A0 to B2 roadmap, 104 weeks, fully offline.">
-<meta name="theme-color" content="#5B5FEF">
+<meta name="theme-color" content="#F7F5F1">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Nederlands">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='40' fill='%235B5FEF'/%3E%3Ctext x='96' y='118' font-family='-apple-system,Helvetica,Arial,sans-serif' font-size='80' font-weight='800' fill='white' text-anchor='middle'%3ENL%3C/text%3E%3C/svg%3E">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='40' fill='%235B5FEF'/%3E%3Ctext x='96' y='118' font-family='-apple-system,Helvetica,Arial,sans-serif' font-size='80' font-weight='800' fill='white' text-anchor='middle'%3ENL%3C/text%3E%3C/svg%3E">
-<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Nederlands%20A0-B2%22%2C%22short_name%22%3A%22Nederlands%22%2C%22display%22%3A%22standalone%22%2C%22start_url%22%3A%22.%22%2C%22background_color%22%3A%22%23F2F2F7%22%2C%22theme_color%22%3A%22%235B5FEF%22%7D">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='40' fill='%23DD5A12'/%3E%3Ctext x='96' y='118' font-family='-apple-system,Helvetica,Arial,sans-serif' font-size='80' font-weight='800' fill='white' text-anchor='middle'%3ENL%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='40' fill='%23DD5A12'/%3E%3Ctext x='96' y='118' font-family='-apple-system,Helvetica,Arial,sans-serif' font-size='80' font-weight='800' fill='white' text-anchor='middle'%3ENL%3C/text%3E%3C/svg%3E">
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Nederlands%20A0-B2%22%2C%22short_name%22%3A%22Nederlands%22%2C%22display%22%3A%22standalone%22%2C%22start_url%22%3A%22.%22%2C%22background_color%22%3A%22%23F7F5F1%22%2C%22theme_color%22%3A%22%23F7F5F1%22%7D">
 <!-- No external stylesheets, scripts, or fonts are loaded: this file works fully offline once opened,
      including when hosted as a static file (e.g. GitHub Pages) or saved locally. Typography uses each
      device's native system font for a fast, authentic look with zero network requests. -->
@@ -76,7 +76,6 @@ body{
 button{font-family:inherit; color:inherit;}
 h1,h2,h3{margin:0;}
 
-/* ---------- icon system ---------- */
 .ic{width:1em; height:1em; display:inline-block; vertical-align:-0.125em; flex:none;}
 .ic svg{width:100%; height:100%; display:block;}
 .iconbtn2 .ic, .iconbtn .ic{width:17px; height:17px; vertical-align:middle;}
@@ -88,12 +87,11 @@ h1,h2,h3{margin:0;}
 .review-card .ic{width:16px; height:16px; vertical-align:-0.18em;}
 h2 .ic{width:15px; height:15px; color:var(--b1);}
 
-/* ---------- header ---------- */
 header{
   position:sticky; top:0; z-index:30;
   background:color-mix(in srgb, var(--bg) 86%, transparent);
   backdrop-filter:saturate(160%) blur(18px); -webkit-backdrop-filter:saturate(160%) blur(18px);
-  padding:18px 18px 12px; border-bottom:1px solid var(--sep);
+  padding:calc(14px + env(safe-area-inset-top)) 18px 12px;
 }
 .hrow{display:flex; align-items:center; justify-content:space-between; gap:12px;}
 .htitle{font-family:var(--serif); font-size:24px; font-weight:700; letter-spacing:-0.015em;}
@@ -125,7 +123,6 @@ header{
 .phaseseg{border-radius:100px; background:var(--sep); overflow:hidden; display:flex;}
 .phasefill{height:100%; width:0%; border-radius:100px; transition:width .5s ease;}
 
-/* ---------- main list ---------- */
 main{max-width:640px; margin:0 auto; padding:18px 14px 60px;}
 .section-title{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.09em; color:var(--sub2); margin:20px 4px 8px;}
 .grouplabel{
@@ -151,7 +148,7 @@ main{max-width:640px; margin:0 auto; padding:18px 14px 60px;}
 .badge.a2{background:var(--a2-bg); color:var(--a2-text);}
 .badge.b1{background:var(--b1-bg); color:var(--b1-text);}
 .badge.b2{background:var(--b2-bg); color:var(--b2-text);}
-.badge.done{color:#fff; background:var(--a1);}
+.badge.done{color:#fff;}
 .row[data-ph="A1"] .badge.done{background:var(--a1);}
 .row[data-ph="A2"] .badge.done{background:var(--a2);}
 .row[data-ph="B1"] .badge.done{background:var(--b1);}
@@ -166,12 +163,10 @@ main{max-width:640px; margin:0 auto; padding:18px 14px 60px;}
 .lock{display:flex; color:var(--sub2);}
 .score-pill{font-size:11px; font-weight:700; color:var(--green); background:var(--green-bg); padding:3px 8px; border-radius:100px; font-variant-numeric:tabular-nums;}
 
-/* locked rows: quieter but fully legible — never opacity-faded */
 .row.locked .rowtitle{color:var(--sub); font-weight:500;}
 .row.locked .rowsub{color:var(--sub2);}
 .row.locked .badge{background:var(--fill); color:var(--sub2);}
 
-/* current week: the "up next" hero */
 .row.current{background:var(--accent-soft); box-shadow:inset 3px 0 0 var(--accent);}
 .row.current:not(:disabled):active{background:var(--accent-soft); filter:brightness(.97);}
 .row.current .badge{background:var(--accent); color:#fff;}
@@ -182,7 +177,6 @@ main{max-width:640px; margin:0 auto; padding:18px 14px 60px;}
 .empty-note{font-size:12.5px; color:var(--sub); margin:14px 6px 0; line-height:1.55;}
 .storage-note{font-size:12px; color:var(--sub2); text-align:center; margin-top:18px;}
 
-/* ---------- review card ---------- */
 .review-card{
   background:var(--ink); color:var(--bg); border-radius:var(--r-lg);
   padding:16px 18px; margin-bottom:4px; display:flex; align-items:center; justify-content:space-between; gap:12px;
@@ -194,7 +188,6 @@ main{max-width:640px; margin:0 auto; padding:18px 14px 60px;}
 .review-card .rgo{background:var(--accent); color:#fff; border-radius:100px; padding:9px 16px; font-size:13px; font-weight:700; flex:none;}
 .review-card:active{transform:scale(.99);}
 
-/* ---------- sheet ---------- */
 .overlay{position:fixed; inset:0; background:rgba(15,14,12,.45); z-index:50; display:none; align-items:flex-end; justify-content:center; backdrop-filter:blur(2px); -webkit-backdrop-filter:blur(2px);}
 .overlay.open{display:flex;}
 @media(min-width:700px){ .overlay{align-items:center;} }
@@ -289,7 +282,6 @@ textarea.wtext:focus{outline:2px solid var(--accent); outline-offset:1px;}
 .btn.secondary{background:transparent; color:var(--ink); border:1.5px solid var(--sep);}
 .btn:disabled{opacity:.4; cursor:not-allowed;}
 
-/* ---------- quiz ---------- */
 .dots{display:flex; gap:5px; margin-bottom:14px;}
 .dot{width:7px; height:7px; border-radius:50%; background:var(--sep);}
 .dot.filled{background:var(--accent);}
@@ -322,7 +314,6 @@ textarea.wtext:focus{outline:2px solid var(--accent); outline-offset:1px;}
 footer{text-align:center; padding:20px; font-size:11.5px; color:var(--sub2);}
 .loading{display:flex; align-items:center; justify-content:center; padding:70px 0; color:var(--sub); font-size:14px;}
 
-/* ---------- search ---------- */
 .searchbar{margin-top:12px; display:flex; align-items:center; gap:8px; background:var(--card); border:1px solid var(--sep); border-radius:100px; padding:10px 14px;}
 .searchbar input{border:none; background:transparent; outline:none; font-size:14px; color:var(--ink); flex:1; font-family:inherit;}
 .searchbar input::placeholder{color:var(--sub2);}
@@ -334,7 +325,6 @@ footer{text-align:center; padding:20px; font-size:11.5px; color:var(--sub2);}
 .searchresult .swords{font-weight:700;}
 .searchresult .smeta{color:var(--sub2); font-size:11.5px; margin-top:1px;}
 
-/* ---------- word bank ---------- */
 .bandchips{display:flex; gap:6px; overflow-x:auto; padding-bottom:4px; margin-bottom:12px; scrollbar-width:none;}
 .bandchips::-webkit-scrollbar{display:none;}
 .bandchip{flex:none; padding:8px 14px; border-radius:100px; border:1px solid var(--sep); background:var(--card); font-size:12.5px; font-weight:700; cursor:pointer; color:var(--sub);}
@@ -348,12 +338,10 @@ footer{text-align:center; padding:20px; font-size:11.5px; color:var(--sub2);}
 .wbactions button{border:none; background:none; cursor:pointer; padding:6px; color:var(--sub2);}
 .wbactions button.on{color:var(--b1);}
 
-/* ---------- backup ---------- */
 .backup-textarea{width:100%; min-height:100px; border:1px solid var(--sep); border-radius:var(--r-sm); padding:10px; font-family:var(--mono); font-size:11.5px; background:var(--fill); color:var(--ink); resize:vertical;}
 .copybtn-note{font-size:12px; color:var(--green); font-weight:700; margin-top:6px; display:none;}
 .copybtn-note.show{display:block;}
 
-/* ---------- accessibility & motion ---------- */
 :focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:4px;}
 button:focus:not(:focus-visible){outline:none;}
 .row, .opt, .btn, .iconbtn2, .bandchip, .tab{transition:transform .12s ease, background .15s ease, border-color .15s ease;}
@@ -3254,15 +3242,12 @@ function saveProgress(){
   return Promise.all(work);
 }
 function applyTheme(){
-  var mode = progress.theme;
-  if(!mode){
-    mode = (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
-  }
+  var mode = progress.theme || 'light'; // light is the default; the saved choice persists across sessions
   document.documentElement.setAttribute('data-theme', mode);
   var btn = el('themeToggleBtn');
   if(btn) btn.innerHTML = mode==='dark' ? icon('sun') : icon('moon');
   var meta = document.querySelector('meta[name="theme-color"]');
-  if(meta) meta.setAttribute('content', mode==='dark' ? '#0B0B0D' : '#5B5FEF');
+  if(meta) meta.setAttribute('content', mode==='dark' ? '#0E0D0B' : '#F7F5F1');
 }
 function toggleTheme(){
   var current = document.documentElement.getAttribute('data-theme') || 'light';
