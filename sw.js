@@ -5,7 +5,7 @@
      airplane mode included), while a fresh copy is fetched in the background
      so the NEXT load picks up any update you push to GitHub.
 */
-var CACHE_NAME = 'nederlands-v3';
+var CACHE_NAME = 'nederlands-v4';
 var CORE = ['./', './index.html'];
 
 self.addEventListener('install', function(event){

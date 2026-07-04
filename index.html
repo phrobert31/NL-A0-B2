@@ -403,7 +403,7 @@ button:focus:not(:focus-visible){outline:none;}
       <div id="reviewCardSlot"></div>
       <div class="section-title" id="listLabel">All weeks</div>
       <div id="weekList"></div>
-      <p class="empty-note">Tap a week to learn: grammar, key verb conjugation, vocabulary, fill-in-the-blank, and writing prompts — then take the end-of-week test (70%+) to unlock the next week. Capstone weeks are marked with a star and review the whole phase. Tap the speaker on any word to hear it, and the star to save it to your daily review.</p>
+      <p class="empty-note">Every week is open to browse — jump ahead or review anything, anytime. Your "Up next" week is marked to keep the recommended order clear. Pass a test at 70%+ to mark a week complete. Capstone weeks are marked with a star and review the whole phase. Tap the speaker on any word to hear it, and the star to save it to your daily review.</p>
       <p class="storage-note" id="storageNote"></p>
     </div>
   </div>
@@ -2999,7 +2999,7 @@ const ALL_VOCAB = WEEKS.flatMap(function(w){ return w.v.map(function(pair){ retu
    ============================================================ */
 function getWeek(n){ return WEEKS.find(function(w){ return w.n===n; }); }
 
-function isUnlocked(n, progress){ return n===1 || !!(progress && progress.completed && progress.completed[n-1]); }
+function isUnlocked(n, progress){ return true; /* every week is browsable; progression is shown, not enforced */ }
 
 function shuffle(arr, rng){
   var r = rng || Math.random;
@@ -3373,14 +3373,12 @@ function renderList(){
     group.className = 'list';
 
     weeks.forEach(function(w){
-      var unlocked = isUnlocked(w.n, progress);
       var done = !!progress.completed[w.n];
-      var isCurrent = unlocked && !done && w.n === progress.current;
+      var isCurrent = !done && w.n === progress.current;
       var score = progress.scores[w.n];
       var row = document.createElement('button');
-      row.className = 'row' + (isCurrent ? ' current' : '') + (!unlocked ? ' locked' : '');
+      row.className = 'row' + (isCurrent ? ' current' : '');
       row.setAttribute('data-ph', ph);
-      row.disabled = !unlocked;
       row.innerHTML =
         '<div class="badge '+(done?'done':ph.toLowerCase())+'">'+w.n+(w.ms?'<span class="star">'+starIcon(true)+'</span>':'')+'</div>'+
         '<div class="rowmid">'+
@@ -3390,9 +3388,9 @@ function renderList(){
         '</div>'+
         '<div class="rowright">'+
           (done ? '<span class="score-pill">'+score+'%</span>' : '')+
-          (unlocked ? '<span class="chev">'+icon('chevron')+'</span>' : '<span class="lock">'+icon('lock')+'</span>')+
+          '<span class="chev">'+icon('chevron')+'</span>'+
         '</div>';
-      if(unlocked){ row.onclick = function(){ openWeek(w.n); }; }
+      row.onclick = function(){ openWeek(w.n); };
       group.appendChild(row);
     });
 
@@ -3641,13 +3639,14 @@ function finishQuiz(){
   var w = getWeek(quizState.n);
   var pct = scorePercent(quizState.answers);
   var pass = pct>=70;
+  var wasCurrent = (w.n === progress.current);
 
   var work = Promise.resolve();
   if(pass){
     progress.completed[w.n] = true;
     progress.scores[w.n] = pct;
     markDoneToday();
-    if(w.n === progress.current) progress.current = Math.min(w.n+1, 104);
+    if(wasCurrent) progress.current = Math.min(w.n+1, 104);
     work = saveProgress();
   }
 
@@ -3655,6 +3654,12 @@ function finishQuiz(){
   var offset = circumference - (pct/100)*circumference;
 
   work.then(function(){
+    var noteText;
+    if(!pass){ noteText = 'Review the vocab and conjugation, then try again.'; }
+    else if(w.n>=104){ noteText = 'You have completed the full roadmap — congratulations!'; }
+    else if(wasCurrent){ noteText = 'Marked complete. Week '+(w.n+1)+' is now your recommended next step.'; }
+    else{ noteText = 'Marked complete — nice work getting ahead.'; }
+
     sheetInner.innerHTML =
       '<div class="sheet-head">'+
         '<div><span class="pill '+w.ph.toLowerCase()+'">Week '+w.n+'</span><h2>'+(pass?'Nice work':'Almost there')+'</h2></div>'+
@@ -3667,7 +3672,7 @@ function finishQuiz(){
             '<circle class="fill" cx="60" cy="60" r="51" style="stroke:'+(pass?'#28A65A':'#E8483C')+'; stroke-dasharray:'+circumference.toFixed(1)+'; stroke-dashoffset:'+offset.toFixed(1)+';"></circle>'+
           '</svg><div class="val">'+pct+'%</div></div>'+
           '<div class="verdict '+(pass?'pass':'fail')+'">'+(pass?'Week complete':'70% needed to pass')+'</div>'+
-          '<div class="result-note">'+(pass? (w.n<104?'Week '+(w.n+1)+' is now unlocked.':'You have completed the full roadmap — congratulations!') : 'Review the vocab and conjugation, then try again.')+'</div>'+
+          '<div class="result-note">'+noteText+'</div>'+
         '</div>'+
         '<div class="btnrow">'+
           '<button class="btn secondary" id="retryBtn">'+(pass?'Retake test':'Try again')+'</button>'+
@@ -3724,9 +3729,8 @@ function renderSearchResults(query){
         '<button class="starbtn '+(starred?'on':'')+'" data-nl="'+r.nl.replace(/"/g,'&quot;')+'">'+starIcon(starred)+'</button></span>'+
       '</div>';
     }
-    var unlocked = isUnlocked(r.week, progress);
-    return '<div class="searchresult" data-week="'+r.week+'" data-unlocked="'+(unlocked?'1':'0')+'">'+
-      '<div><div class="swords">'+r.nl+' — '+r.en+'</div><div class="smeta">Week '+r.week+' · '+PHASE_LABEL[r.ph]+(unlocked?'':' · locked')+'</div></div>'+
+    return '<div class="searchresult" data-week="'+r.week+'">'+
+      '<div><div class="swords">'+r.nl+' — '+r.en+'</div><div class="smeta">Week '+r.week+' · '+PHASE_LABEL[r.ph]+'</div></div>'+
       '<span class="speakbtn" data-say="'+r.nl.replace(/"/g,'&quot;')+'">'+icon('volume')+'</span>'+
     '</div>';
   }).join('');
@@ -3745,7 +3749,7 @@ function renderSearchResults(query){
     }
     row.onclick = function(e){
       if(e.target.classList.contains('speakbtn')){ speak(e.target.dataset.say); return; }
-      if(row.dataset.unlocked==='1'){ openWeek(parseInt(row.dataset.week,10)); }
+      openWeek(parseInt(row.dataset.week,10));
     };
   });
 }
